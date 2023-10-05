@@ -2,32 +2,34 @@
 ## Question 1:
 Your goal for this question is to write a program that accepts two lines (x1,x2) and (x3,x4) on the x-axis and returns whether they overlap. As an example, (1,5) and (2,6) overlaps but not (1,5) and (6,8). 
 ### Answer 1:
-In this, the points are sorted in the ascending order, i.e. if we have x1,x2 and x3,x4, if x1>x2 we will swap this. Same rule goes with x3,x4.
-Now if, x1>x3 we will swap both the points. 
-Further, we will check if x3 lies between x1 and x2. If so, return overlapping else return not overlapping.
+In this, approach was to sort both the lines using a comparator function by the first pair value of co-ordinate, cases where first co-ordinate was less than second co-ordinate was also taken care of, then after sorting if second line start point lies before first line ending point then it is claimed to be overlapped else if it starts at the exact same point or starts after that then it is not regarded as overlapping 
 
 ## Question 2:
 The goal of this question is to write a software library that accepts 2 version string as input and returns whether one is greater than, equal, or less than the other. As an example: “1.2” is greater than “1.1”. Please provide all test cases you could think of. 
 ### Answer 2:
-A header file is created which includes the signature of the functions. It is further included in the cpp file.
-
-The question states that we have 2 strings. So, I will run the iterator till '.' for both the strings. I will convert the string (i.e. substring from string1) to number by applying formula, n1 = n1*10 + (s[i] - '0'). Same formula, n2 for string2. 
-Now if n1>n2 we will return that string 1 is greater than string 2.
-else if n2>n1 will will return that string 2 is greater that string 1.
-else if iterator for both the strings have reached till end, we will return that both strings are equal.
+For this problem, approch was as follows:
+=> compare two strings using diff substring of that string at substring was created between two particular dots "."
+=> we will compare both of those substrings and if they are not equal we will return the smaller substring's respective original strinf
+=> if they are equal then we will move on comparing the next version of substrings of both the strinfs
+=> we are taking of trailimng zeroes as those are invalid
+=> comparison of 2 substrings is done based upon the integer value equivalent to that string
+=> all the version strings that are invalid are also taken care of
 
 ## Question 3:
 At Ormuco, we want to optimize every bits of software we write. Your goal is to write a new library that can be integrated to the Ormuco stack. Dealing with network issues everyday, latency is our biggest problem. Thus, your challenge is to write a new Geo Distributed LRU (Least Recently Used) cache with time expiration.
 ### Answer 3:
-In this, we have to implement least recently used cache. The path that I choose is that I have created a doubly linked list. I have also created a hashmap to store the reference of the node linked to the key.
+For this problem, we used doubly linked list to implement the LRU Cache system
+=> we basically have 4 operations
+   => put data in cache
+   => fetch data from cache
+   => show data of cache in order
+   => exit from the whole program
 
-Each node of DLL contains key, value and time at which that node will be created.
-Each time the node is added or updated the time is set to the current time. 
-
-I have created 3 functions i.e. put, get and print the values.
-
-Before applying every operation, i have checked that for every node present in the DLL if "currentTime" - "time of node created" > expiration time then I will remove that node from DLL. After this, it will perform the specified operation.
-
-For put, i will update the value if key already exists and also update the time to current time. Otherwise, add the key-value to the front of DLL with current time. If the capacity is reached, remove the least recently used i.e. delete the last node from the DLL.
-For get, i have checked that if the key is present in map, then return the value. Now, this node is used recently so I have set the time to current time. Also, delete the node and add it to the front as it is the newly used cache. If the key is not present in the map, then return -1.
-For print, it will simply iterate over the map and print the key-value pair.
+=> least recenty used cache is maintained at the head of the doubly linked list and will be removed if capaicty is full and new put request is there
+=> if capacity of cache is full then LRU cache which is head will be removed from cache and new data will be inserted at end
+=> elements in cache always remain sorted as per their accessed time in ascending order from head to tail
+=> we are also using hashmap for data to store to avaoid linear seaching time in our algorithm (so for searchig data in cache we will do it in O(N))
+=> for the concept of time expiry of cache we are storing the time of cache_accessed when the element was pushed or was accessed last from the cache.
+=> now we know elements are in sorted order of accessed_time, we will simply find a first node which does not expire at some operation x and remove all the nodes before that as they all would have been expired
+=> we are checkinga nd removing expired cache entries before every operation such as put,fetch and show
++> all the edge cases have been taken care of and handled
