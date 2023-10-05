@@ -1,6 +1,6 @@
 #ifndef __ORMUCO_QUESTION2_H__
 #define __ORMUCO_QUESTION2_H__
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 //function to compare versions of 2 strings

@@ -1,6 +1,6 @@
 #ifndef __ORMUCO_QUESTION3_H__
 #define __ORMUCO_QUESTION3_H__
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 
 using namespace std;
 
