@@ -27,9 +27,15 @@ For this problem, we used doubly linked list to implement the LRU Cache system
 
 => least recenty used cache is maintained at the head of the doubly linked list and will be removed if capaicty is full and new put request is there
 => if capacity of cache is full then LRU cache which is head will be removed from cache and new data will be inserted at end
+
 => elements in cache always remain sorted as per their accessed time in ascending order from head to tail
+
 => we are also using hashmap for data to store to avaoid linear seaching time in our algorithm (so for searchig data in cache we will do it in O(N))
+
 => for the concept of time expiry of cache we are storing the time of cache_accessed when the element was pushed or was accessed last from the cache.
+
 => now we know elements are in sorted order of accessed_time, we will simply find a first node which does not expire at some operation x and remove all the nodes before that as they all would have been expired
+
 => we are checkinga nd removing expired cache entries before every operation such as put,fetch and show
-+> all the edge cases have been taken care of and handled
+
+=> all the edge cases have been taken care of and handled
