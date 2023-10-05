@@ -1,12 +1,5 @@
-#include <bits/stdc++.h>
+#include <Question3.h>
 using namespace std;
-
-struct Cache{
-    int data;
-    int time_accessed_sec;
-    Cache* next;
-    Cache* previous;
-};
 
 Cache *head=NULL;
 Cache *tail=NULL;

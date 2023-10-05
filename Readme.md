@@ -7,18 +7,27 @@ In this, approach was to sort both the lines using a comparator function by the 
 ## Question 2:
 The goal of this question is to write a software library that accepts 2 version string as input and returns whether one is greater than, equal, or less than the other. As an example: “1.2” is greater than “1.1”. Please provide all test cases you could think of. 
 ### Answer 2:
+
 For this problem, approch was as follows:
+
 => compare two strings using diff substring of that string at substring was created between two particular dots "."
-=> we will compare both of those substrings and if they are not equal we will return the smaller substring's respective original strinf
-=> if they are equal then we will move on comparing the next version of substrings of both the strinfs
-=> we are taking of trailimng zeroes as those are invalid
+
+=> we will compare both of those substrings and if they are not equal we will return the smaller substring's respective original string
+
+=> if they are equal then we will move on comparing the next version of substrings of both the strings
+
+=> we are taking of trailing zeroes as those are invalid
+
 => comparison of 2 substrings is done based upon the integer value equivalent to that string
+
 => all the version strings that are invalid are also taken care of
 
 ## Question 3:
 At Ormuco, we want to optimize every bits of software we write. Your goal is to write a new library that can be integrated to the Ormuco stack. Dealing with network issues everyday, latency is our biggest problem. Thus, your challenge is to write a new Geo Distributed LRU (Least Recently Used) cache with time expiration.
 ### Answer 3:
+
 For this problem, we used doubly linked list to implement the LRU Cache system
+
 => we basically have 4 operations
    => put data in cache
    => fetch data from cache
@@ -26,6 +35,7 @@ For this problem, we used doubly linked list to implement the LRU Cache system
    => exit from the whole program
 
 => least recenty used cache is maintained at the head of the doubly linked list and will be removed if capaicty is full and new put request is there
+
 => if capacity of cache is full then LRU cache which is head will be removed from cache and new data will be inserted at end
 
 => elements in cache always remain sorted as per their accessed time in ascending order from head to tail
@@ -36,6 +46,6 @@ For this problem, we used doubly linked list to implement the LRU Cache system
 
 => now we know elements are in sorted order of accessed_time, we will simply find a first node which does not expire at some operation x and remove all the nodes before that as they all would have been expired
 
-=> we are checkinga nd removing expired cache entries before every operation such as put,fetch and show
+=> we are checking and removing expired cache entries before every operation such as put,fetch and show
 
 => all the edge cases have been taken care of and handled

@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include<Question2.h>
 using namespace std;
 
 // function to convert string to int for comapring
